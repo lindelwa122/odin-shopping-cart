@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Product Component > renders correctly 1`] = `
+<div>
+  <div>
+    <div>
+      <img
+        alt="Scarf"
+        src="https://fake-api.img.com/shop-1"
+      />
+    </div>
+    <div>
+      <p
+        aria-label="product name"
+      >
+        Scarf
+      </p>
+      <p
+        aria-label="product price"
+      >
+        R
+        78
+      </p>
+    </div>
+  </div>
+</div>
+`;

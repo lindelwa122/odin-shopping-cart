@@ -1,9 +1,11 @@
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Product = ({ product }) => {
+  const navigate = useNavigate();
+
   return (
-    <div onClick={() => redirect(`product/${product.getId()}`)}>
+    <div onClick={() => navigate(`/product/${product.getId()}`)}>
       <div>
         <img src={product.getImg()} alt={product.getName()} />
       </div>
