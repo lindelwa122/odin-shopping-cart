@@ -7,6 +7,9 @@ const useProductsData = () => {
   const [loading, setLoading] = useState(true);
 
   const addProductsToShop = (data) => {
+    // Ensure shop is empty before adding any products
+    shop.clearShop();
+
     data.forEach(({ id, title, price, description, image }) => {
       shop.createProduct('shop-' + id, title, price, description, image);
     });
