@@ -48,8 +48,8 @@ const shoppingCart = () => {
     return true;
   };
 
-  const getProducts = () => cart;
-
+  const getProducts = () => [...cart];
+    
   const getTotalItems = () => cart.length;
 
   const getTotalPrice = () => {
