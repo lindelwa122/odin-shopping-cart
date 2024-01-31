@@ -17,8 +17,8 @@ const App = () => {
 
   if (loading) return <h1>Loading...</h1>
 
-  const addToCart = (product) => {
-    const added = shoppingCart.addProduct(product);
+  const addToCart = (product, quantity) => {
+    const added = shoppingCart.addProduct(product, quantity);
     if (added) {
       setCart(() => shoppingCart.getProducts());
       cartCache.save();

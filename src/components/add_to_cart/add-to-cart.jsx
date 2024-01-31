@@ -44,7 +44,7 @@ const AddToCart = () => {
     e.preventDefault();
 
     if (typeof quantity === 'number' && quantity > 0) {
-      addToCart(product);
+      addToCart(product, quantity);
       setQuantity(1);
       alert('Product added to cart.');
     }
