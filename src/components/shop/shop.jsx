@@ -1,18 +1,11 @@
 import { nanoid } from 'nanoid';
-
-import { useProductsData } from '../../utils/custom-hooks';
+import { useContext } from 'react';
 import Product from '../product/product';
 import Navbar from '../header/navbar';
+import ShopContext from '../../context';
 
 const Shop = () => {
-  const { error, loading, products } = useProductsData();
-
-  if (error) {
-    console.log(error);
-    return <h1>The was an error.</h1>
-  }
-
-  if (loading) return <h1>Loading...</h1>
+  const { products } = useContext(ShopContext);
 
   const productsView = products.map(product => (
     <Product key={nanoid()} product={product} />

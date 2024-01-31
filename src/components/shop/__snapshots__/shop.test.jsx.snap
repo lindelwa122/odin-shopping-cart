@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Product Component > renders correctly 1`] = `
+<div>
+  <h1>
+    Loading...
+  </h1>
+</div>
+`;
+
+exports[`S Component > renders correctly 1`] = `
+<div>
+  <h1>
+    Loading...
+  </h1>
+</div>
+`;
+
+exports[`Shop Component > renders correctly 1`] = `
+<div>
+  <h1>
+    Loading...
+  </h1>
+</div>
+`;
