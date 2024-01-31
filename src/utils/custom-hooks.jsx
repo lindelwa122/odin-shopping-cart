@@ -12,7 +12,7 @@ const useProductsData = () => {
     shop.clearShop();
 
     data.forEach(({ id, title, price, description, image }) => {
-      shop.createProduct('shop-' + id, title, price, description, image);
+      shop.createProduct(id.toString(), title, price, description, image);
     });
 
     productsCache.save();
