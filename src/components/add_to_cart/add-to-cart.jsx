@@ -1,14 +1,15 @@
 import { useParams } from 'react-router-dom';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useContext, useState, useRef } from 'react';
 
 import Navbar from '../header/navbar';
 import shop from '../../modules/shop/shop';
-import shoppingCart from '../../modules/shopping_cart/shopping-cart';
+import ShopContext from '../../context';
 
 const AddToCart = () => {
   const { id } = useParams();
   const product = shop.findProduct(id);
 
+  const { addToCart } = useContext(ShopContext);
   const [quantity, setQuantity] = useState(1);
   const inputRef = useRef(null);
 
@@ -43,7 +44,7 @@ const AddToCart = () => {
     e.preventDefault();
 
     if (typeof quantity === 'number' && quantity > 0) {
-      shoppingCart.addProduct(product);
+      addToCart(product);
       setQuantity(1);
       alert('Product added to cart.');
     }
