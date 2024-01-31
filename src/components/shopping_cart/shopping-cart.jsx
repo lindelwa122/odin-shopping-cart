@@ -37,9 +37,11 @@ const ShoppingCart = () => {
         <h2>Product count: {cart.length}</h2>
         <table>
           <thead>
-            <td>Item</td>
-            <td>Quantity</td>
-            <td>Price</td>
+            <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </tr>
           </thead>
           <tbody>{productList}</tbody>
         </table>
