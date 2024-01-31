@@ -4,7 +4,9 @@ import shoppingCart from '../shopping_cart/shopping-cart';
 
 const cartCache = () => {
   const save = () => {
-    const products = shoppingCart.getProducts();
+    const products = shoppingCart.getProducts().map((product) => {
+      return { ...product, incrementQuantity: () => {}}
+    })
     cache.save(products, 'sk1-cart');
   };
 
