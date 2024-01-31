@@ -15,13 +15,21 @@ const cache = () => {
    * @param {string} key - A key which will later on be used to retrieve the products
    */
   const save = (products, key) => {
-    localStorage.setItem(key, JSON.stringify(products));
+    const newArr = [];
+    products.forEach((product) => {
+      const newObj = {};
+      for (const [key, val] of Object.entries(product)) {
+        newObj[key] = val();
+      }
+      newArr.push(newObj);
+    });
+    localStorage.setItem(key, JSON.stringify(newArr));
   };
 
   /**
    * Retrieves and returns an array of products from localStorage
    * @param {string} key - A key to retrieve products from localStorage
-   * @returns {Array<Product>} An array of products
+   * @returns {Array} An array of products
    */
   const getData = (key) => {
     const products = localStorage.getItem(key);

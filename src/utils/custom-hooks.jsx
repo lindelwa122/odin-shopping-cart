@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import productsCache from '../modules/cache/productsCache';
 import shop from '../modules/shop/shop';
 
 const useProductsData = () => {
@@ -13,11 +14,14 @@ const useProductsData = () => {
     data.forEach(({ id, title, price, description, image }) => {
       shop.createProduct('shop-' + id, title, price, description, image);
     });
+
+    productsCache.save();
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      const products = shop.getAllProducts();
+      const products = productsCache.getData();
+
       if (products.length === 0) {
         try {
           const response = await fetch('https://fakestoreapi.com/products');
@@ -33,6 +37,8 @@ const useProductsData = () => {
         } catch (err) {
           setError(err);
         }
+      } else {
+        addProductsToShop(products);
       }
 
       setProducts(shop.getAllProducts());

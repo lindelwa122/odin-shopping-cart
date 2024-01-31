@@ -7,7 +7,21 @@ const productsCache = () => {
     cache.save(products, 'sk1-products');
   };
 
-  const getData = () => cache.getData('sk1-products');
+  const getData = () => {
+    const products = [];
+    const data = cache.getData('sk1-products');
+
+    data.forEach((item) => {
+      products.push({ 
+        id: item.getId,
+        title: item.getName,
+        description: item.getDescr,
+        price: item.getPrice,
+        image: item.getImg
+      });
+    });
+    return products;
+  };
 
   return { getData, save };
 };
