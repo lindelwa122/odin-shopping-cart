@@ -5,8 +5,14 @@ const shoppingCart = () => {
     cart.splice(0, cart.length);
   };
 
-  const extendedProduct = (product) => {
-    let quantity = 1;
+  /**
+   * Creates an extended version of product
+   * @param {Product} product - The product to be extended
+   * @param {number} q - The quantity of the product in cart
+   * @returns 
+   */
+  const extendedProduct = (product, q) => {
+    let quantity = q;
     const getQuantity = () => quantity;
     const incrementQuantity = () => ++quantity;
     const getTotalPrice = () => product.getPrice() * quantity;
@@ -36,14 +42,14 @@ const shoppingCart = () => {
    *
    * @param {Product} p - product instance
    */
-  const addProduct = (p) => {
+  const addProduct = (p, quantity) => {
     const productInCart = cart.find((item) => item.getId() === p.getId());
     if (productInCart) {
       productInCart.incrementQuantity();
       return false;
     }
 
-    const extProduct = extendedProduct(p);
+    const extProduct = extendedProduct(p, quantity ?? 1);
     cart.push(extProduct);
     return true;
   };

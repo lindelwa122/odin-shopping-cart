@@ -1,4 +1,5 @@
 import cache from './cache';
+import product from '../product/product';
 import shoppingCart from '../shopping_cart/shopping-cart';
 
 const cartCache = () => {
@@ -7,7 +8,22 @@ const cartCache = () => {
     cache.save(products, 'sk1-cart');
   };
 
-  const getData = () => cache.getData('sk1-cart');
+  const getData = () => {
+    const data = cache.getData('sk1-cart');
+    data.forEach((item) => {
+      const p = product(
+        item.getId,
+        item.getName,
+        item.getPrice,
+        item.getDescr,
+        item.getImg
+      );
+
+      shoppingCart.addProduct(p, item.getQuantity);
+    });
+    
+    return shoppingCart.getProducts();
+  };
 
   return { getData, save };
 };

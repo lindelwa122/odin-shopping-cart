@@ -1,13 +1,14 @@
 import { useState } from 'react';
 
 import { useProductsData } from './utils/custom-hooks';
+import cartCache from './modules/cache/cartCache';
 import Router from './router';
 import shoppingCart from './modules/shopping_cart/shopping-cart';
 import ShopContext from './context';
 
 const App = () => {
   const { error, loading, products } = useProductsData();
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => cartCache.getData());
 
   if (error) {
     console.log(error);
@@ -20,6 +21,7 @@ const App = () => {
     const added = shoppingCart.addProduct(product);
     if (added) {
       setCart(() => shoppingCart.getProducts());
+      cartCache.save();
     }
   }
 
@@ -27,6 +29,7 @@ const App = () => {
     const removed = shoppingCart.removeProduct(id);
     if (removed) {
       setCart(() => shoppingCart.getProducts());
+      cartCache.save();
     }
   }
 
