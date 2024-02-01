@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import 'normalize.css';
+import './main.css';
 
 import { useProductsData } from './utils/custom-hooks';
 import cartCache from './modules/cache/cartCache';
