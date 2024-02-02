@@ -11,6 +11,7 @@ import ShopContext from './context';
 const App = () => {
   const { error, loading, products } = useProductsData();
   const [cart, setCart] = useState(() => cartCache.getData());
+  const [cartTotal, setCartTotal] = useState(() => shoppingCart.getTotalItems());
 
   if (error) {
     console.log(error);
@@ -23,6 +24,7 @@ const App = () => {
     const added = shoppingCart.addProduct(product, quantity);
     if (added) {
       setCart(() => shoppingCart.getProducts());
+      setCartTotal(() => shoppingCart.getTotalItems());
       cartCache.save();
     }
   }
@@ -31,12 +33,13 @@ const App = () => {
     const removed = shoppingCart.removeProduct(id);
     if (removed) {
       setCart(() => shoppingCart.getProducts());
+      setCartTotal(() => shoppingCart.getTotalItems());
       cartCache.save();
     }
   }
 
   return (
-    <ShopContext.Provider value={{ addToCart, cart, products, removeFromCart }}>
+    <ShopContext.Provider value={{ addToCart, cart, cartTotal, products, removeFromCart }}>
       <Router />
     </ShopContext.Provider>
   )
