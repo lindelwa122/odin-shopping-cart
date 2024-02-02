@@ -56,7 +56,11 @@ const shoppingCart = () => {
 
   const getProducts = () => [...cart];
     
-  const getTotalItems = () => cart.length;
+  const getTotalItems = () => {
+    return cart.reduce((prev, item) => {
+      return prev + item.getQuantity()
+    }, 0);
+  };
 
   const getTotalPrice = () => {
     return cart.reduce((prev, item) => {
