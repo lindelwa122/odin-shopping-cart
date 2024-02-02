@@ -1,0 +1,50 @@
+.main {
+  composes: main from '../home/home.module.css';
+  padding: 50px 40px;
+}
+
+.heroSection {
+  composes: heroSection from '../home/home.module.css';
+  background: url('../../assets/images/watch-2.jpg') no-repeat 45% 45%;
+  background-clip: border-box;
+  align-items: flex-start;
+  padding: 0 0 0 35px;
+  justify-content: center;
+}
+
+.h1 {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.heroPar {
+  margin: 0;
+  max-width: 35%;
+}
+
+.h2 {
+  font-weight: 500;
+  margin-bottom: 50px;
+}
+
+.itemsCount {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+@media (max-width: 992px) {
+  .heroSection {
+    background-position: 40% 43%;
+  }
+}
+
+@media (max-width: 498px) {
+  .heroSection {
+    background-position: 38% 41%;
+  }
+
+  .heroPar {
+    max-width: 75%;
+  }
+}

@@ -1,0 +1,52 @@
+.img {
+  width: 50px;
+}
+
+.th {
+  text-align: left;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.caption {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.main {
+  padding: 20px 40px;
+  background-color: #000;
+  color: #fff;
+  height: 100%;
+}
+
+.btn {
+  color: #fff;
+  border: none;
+  background-color: transparent;
+  transition: all 0.5s;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.td {
+  padding: 10px;
+}
+
+.tr {
+  transition: all 0.5s;
+}
+
+.remove {
+  height: 0;
+  opacity: 0;
+}

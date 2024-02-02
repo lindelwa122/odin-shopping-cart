@@ -1,9 +1,13 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useContext, useState, useRef } from 'react';
+import { PiArrowFatUpFill, PiArrowFatDownFill } from "react-icons/pi";
+import { FaCartPlus } from "react-icons/fa";
 
 import Navbar from '../header/navbar';
 import shop from '../../modules/shop/shop';
 import ShopContext from '../../context';
+import { img } from '../home/home.module.css';
+import styles from './add-to-cart.module.css';
 
 const AddToCart = () => {
   const { id } = useParams();
@@ -53,32 +57,38 @@ const AddToCart = () => {
   return (
     <>
       <Navbar />
-      <main>
-        <div>
-          <img src={product.getImg()} alt={product.getName()} />
+      <main className={styles.main}>
+        <div className={styles.productContainer}>
+          <div className={styles.imgWrapper}>
+            <img className={img} src={product.getImg()} alt={product.getName()} />
+          </div>
+          <div>
+            <h1>{product.getName()}</h1>
+            <p aria-label='product price'>R{product.getPrice().toFixed(2)}</p>
+            <p aria-label='product description'>{product.getDescr()}</p>
+            <form className={styles.form} onSubmit={handleSubmit}>
+              <input className={styles.input} ref={inputRef} type='number' value={quantity} onChange={handleChange} />
+              <button
+                className={styles.btn}
+                aria-label='increment quantity'
+                type='button'
+                onClick={incrementQuantity}>
+                  <PiArrowFatUpFill />
+              </button>
+              <button
+                className={styles.btnOriginDown}
+                aria-label='decrement quantity'
+                type='button'
+                disabled={quantity <= 1}
+                onClick={decrementQuantity}>
+                  <PiArrowFatDownFill />
+              </button>
+              <button className={styles.btn} type='submit'>
+                <FaCartPlus />
+              </button>
+            </form>
+          </div>
         </div>
-        <div>
-          <h1>{product.getName()}</h1>
-          <p aria-label='product price'>R{product.getPrice()}</p>
-          <form onSubmit={handleSubmit}>
-            <input ref={inputRef} type='number' value={quantity} onChange={handleChange} />
-            <button 
-              aria-label='increment quantity' 
-              type='button'
-              onClick={incrementQuantity}>
-                Increment
-            </button>
-            <button 
-              aria-label='decrement quantity' 
-              type='button'
-              disabled={quantity <= 1}
-              onClick={decrementQuantity}>
-                Decrement
-            </button>
-            <button type='submit'>Add to cart</button>
-          </form>
-        </div>
-        <p aria-label='product description'>{product.getDescr()}</p>
       </main>
     </>
   )

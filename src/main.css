@@ -4,3 +4,13 @@
   box-sizing: border-box;
   font-family: 'Roboto Condensed', sans-serif;
 }
+
+html, body, #root {
+  min-height: 100vh;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
