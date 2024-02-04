@@ -7,7 +7,7 @@ const addProductsToShop = (data) => {
   shop.clearShop();
 
   data.forEach(({ id, title, price, description, image }) => {
-    shop.createProduct(id.toString(), title, price, description, image);
+    shop.createProduct(id.toString(), title, price * 18, description, image);
   });
 
   productsCache.save();
