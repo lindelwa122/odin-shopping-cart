@@ -1,15 +1,16 @@
 import { useContext } from 'react';
-
-import Navbar from '../header/navbar';
 import { nanoid } from 'nanoid';
+
+import { btn } from '../home/home.module.css';
+import ErrorPage from '../error_page/error-page';
+import Navbar from '../header/navbar';
 import ShopContext from '../../context';
 import styles from './shopping-cart.module.css';
-import { btn } from '../home/home.module.css';
 
 const ShoppingCart = () => {
   const { cart, removeFromCart } = useContext(ShopContext);
 
-  if (cart.length === 0) return <h1>The shopping cart is empty</h1>
+  if (cart.length === 0) return <ErrorPage error='The shopping cart is empty' />
 
   const productList = cart.map(product => (
     <tr key={nanoid()}>
