@@ -12,23 +12,27 @@ const Router = () => {
     {
       path: '/',
       element: <Home />,
-      errorElement: <ErrorPage />
+      errorElement: <ErrorPage />,
     },
     {
       path: 'shop',
       element: <Shop />,
+      errorElement: <ErrorPage />,
     },
     {
       path: 'product/:id',
       element: <AddToCart />,
+      errorElement: <ErrorPage />,
     },
     {
       path: 'cart',
       element: <ShoppingCart />,
+      errorElement: <ErrorPage />,
     },
     {
       path: 'checkout',
       element: <Checkout />,
+      errorElement: <ErrorPage />,
     },
   ]);
 
