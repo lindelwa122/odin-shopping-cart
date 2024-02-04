@@ -22,12 +22,10 @@ const App = () => {
   if (loading) return <Loading />
 
   const addToCart = (product, quantity) => {
-    const added = shoppingCart.addProduct(product, quantity);
-    if (added) {
-      setCart(() => shoppingCart.getProducts());
-      setCartTotal(() => shoppingCart.getTotalItems());
-      cartCache.save();
-    }
+    shoppingCart.addProduct(product, quantity);
+    setCart(() => shoppingCart.getProducts());
+    setCartTotal(() => shoppingCart.getTotalItems());
+    cartCache.save();
   }
 
   const removeFromCart = (id) => {
