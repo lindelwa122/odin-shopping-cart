@@ -1,0 +1,92 @@
+.page {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+}
+
+.clock {
+  height: 500px;
+  width: 500px;
+  border: 1px solid #fff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.pointer {
+  position: absolute;
+  height: 1px;
+  width: 150px;
+  background-color: #fff;
+  transform: translateX(75px);
+  animation: tick 4s infinite;
+}
+
+@keyframes tick {
+  from {
+    transform: rotate(0) translateX(75px);
+  }
+  25% {
+    transform: rotate(90deg) translateX(75px);
+  }
+  50% {
+    transform: rotate(180deg) translateX(75px);
+  }
+  75% {
+    transform: rotate(270deg) translateX(75px);
+  }
+  to {
+    transform: rotate(360deg) translateX(75px);
+  }
+}
+
+.marker {
+  position: absolute;
+  background-color: #fff;
+}
+
+.twelveMarker, .sixMarker {
+  composes: marker;
+  width: 10px;
+  height: 50px;
+  margin: 0 auto;
+  right: 50%;
+  left: 50%;
+}
+
+.threeMarker, .nineMarker {
+  composes: marker;
+  width: 50px;
+  height: 10px;
+  margin: auto 0;
+  top: 50%;
+  bottom: 50%;
+}
+
+.twelveMarker {
+  top: 0;
+}
+
+.threeMarker {
+  right: 0;
+}
+
+.sixMarker {
+  bottom: 0;
+}
+
+.nineMarker {
+  left: 0;
+}
