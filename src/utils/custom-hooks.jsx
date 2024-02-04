@@ -2,21 +2,21 @@ import { useEffect, useState } from 'react';
 import productsCache from '../modules/cache/productsCache';
 import shop from '../modules/shop/shop';
 
+const addProductsToShop = (data) => {
+  // Ensure shop is empty before adding any products
+  shop.clearShop();
+
+  data.forEach(({ id, title, price, description, image }) => {
+    shop.createProduct(id.toString(), title, price, description, image);
+  });
+
+  productsCache.save();
+};
+
 const useProductsData = () => {
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  const addProductsToShop = (data) => {
-    // Ensure shop is empty before adding any products
-    shop.clearShop();
-
-    data.forEach(({ id, title, price, description, image }) => {
-      shop.createProduct(id.toString(), title, price, description, image);
-    });
-
-    productsCache.save();
-  };
 
   useEffect(() => {
     const fetchData = async () => {
