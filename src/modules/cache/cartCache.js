@@ -11,6 +11,7 @@ const cartCache = () => {
   };
 
   const getData = () => {
+    shoppingCart.clear();
     const data = cache.getData('sk1-cart');
     data.forEach((item) => {
       const p = product(
