@@ -17,7 +17,7 @@ const ErrorPage = ({ error }) => {
   )
 }
 
-ErrorPage.PropTypes = {
+ErrorPage.propTypes = {
   error: PropTypes.string,
 };
 
