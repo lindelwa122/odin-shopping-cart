@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import AddToCart from './components/add_to_cart/add-to-cart';
 import Checkout from './components/checkout/checkout';
+import ErrorPage from './components/error_page/error-page';
 import Home from './components/home/home';
 import Shop from './components/shop/shop';
 import ShoppingCart from './components/shopping_cart/shopping-cart';
@@ -11,6 +12,7 @@ const Router = () => {
     {
       path: '/',
       element: <Home />,
+      errorElement: <ErrorPage />
     },
     {
       path: 'shop',

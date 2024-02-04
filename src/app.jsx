@@ -4,6 +4,8 @@ import './main.css';
 
 import { useProductsData } from './utils/custom-hooks';
 import cartCache from './modules/cache/cartCache';
+import ErrorPage from './components/error_page/error-page';
+import Loading from './components/loading_page/loading-page';
 import Router from './router';
 import shoppingCart from './modules/shopping_cart/shopping-cart';
 import ShopContext from './context';
@@ -14,11 +16,10 @@ const App = () => {
   const [cartTotal, setCartTotal] = useState(() => shoppingCart.getTotalItems());
 
   if (error) {
-    console.log(error);
-    return <h1>There was an error</h1>
+    return <ErrorPage error={error} />
   }
 
-  if (loading) return <h1>Loading...</h1>
+  if (loading) return <Loading />
 
   const addToCart = (product, quantity) => {
     const added = shoppingCart.addProduct(product, quantity);
