@@ -5,7 +5,9 @@
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   min-height: 100vh;
   height: 100%;
 }

@@ -5,8 +5,8 @@ import shoppingCart from '../shopping_cart/shopping-cart';
 const cartCache = () => {
   const save = () => {
     const products = shoppingCart.getProducts().map((product) => {
-      return { ...product, incrementQuantity: () => {}}
-    })
+      return { ...product, incrementQuantity: () => {} };
+    });
     cache.save(products, 'sk1-cart');
   };
 
@@ -19,12 +19,12 @@ const cartCache = () => {
         item.getName,
         item.getPrice,
         item.getDescr,
-        item.getImg
+        item.getImg,
       );
 
       shoppingCart.addProduct(p, item.getQuantity);
     });
-    
+
     return shoppingCart.getProducts();
   };
 

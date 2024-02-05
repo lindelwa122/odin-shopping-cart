@@ -8,14 +8,14 @@ test('product returns the right data test 1', () => {
     price: 260,
     description: 'A beautiful scarf',
     image: 'https://fake-api.img.com/product/x-ejkfb3i4h.jpeg',
-  }
+  };
 
   const p = product(
     productInfo.id,
     productInfo.name,
     productInfo.price,
     productInfo.description,
-    productInfo.image
+    productInfo.image,
   );
 
   expect(p.getId()).toBe(productInfo.id);
@@ -32,14 +32,14 @@ test('product returns the right data test 2', () => {
     price: 160,
     description: 'Cozy green nicely knitted socks',
     image: 'https://fake-api.img.com/product/x-serhtkjdn.jpeg',
-  }
+  };
 
   const p = product(
     productInfo.id,
     productInfo.name,
     productInfo.price,
     productInfo.description,
-    productInfo.image
+    productInfo.image,
   );
 
   expect(p.getId()).toBe(productInfo.id);

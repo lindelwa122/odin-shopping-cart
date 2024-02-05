@@ -10,24 +10,30 @@ import styles from './shopping-cart.module.css';
 const ShoppingCart = () => {
   const { cart, removeFromCart } = useContext(ShopContext);
 
-  if (cart.length === 0) return <ErrorPage error='The shopping cart is empty' />
+  if (cart.length === 0)
+    return <ErrorPage error="The shopping cart is empty" />;
 
-  const productList = cart.map(product => (
+  const productList = cart.map((product) => (
     <tr key={nanoid()}>
       <td className={styles.td}>
-        <button 
-          aria-label='remove product' 
+        <button
+          aria-label="remove product"
           className={styles.btn}
-          onClick={() => removeFromCart(product.getId())}>
-            x
+          onClick={() => removeFromCart(product.getId())}
+        >
+          x
         </button>
       </td>
       <td className={styles.td}>
-        <img className={styles.img} src={product.getImg()} alt={product.getDescr()} />
+        <img
+          className={styles.img}
+          src={product.getImg()}
+          alt={product.getDescr()}
+        />
       </td>
       <td className={styles.td}>
-        <p aria-label='product name'>{product.getName()}</p>
-        <p aria-label='product price'>R{product.getPrice().toFixed(2)}</p>
+        <p aria-label="product name">{product.getName()}</p>
+        <p aria-label="product price">R{product.getPrice().toFixed(2)}</p>
       </td>
       <td className={styles.td}>{product.getQuantity()}</td>
       <td className={styles.td}>R{product.getTotalPrice().toFixed(2)}</td>
@@ -42,7 +48,9 @@ const ShoppingCart = () => {
           <caption className={styles.caption}>Shopping Cart</caption>
           <thead>
             <tr>
-              <th className={styles.th} colSpan='3'>Item</th>
+              <th className={styles.th} colSpan="3">
+                Item
+              </th>
               <th className={styles.th}>Quantity</th>
               <th className={styles.th}>Price</th>
             </tr>
@@ -52,7 +60,7 @@ const ShoppingCart = () => {
         <button className={btn}>Proceed to checkout</button>
       </main>
     </>
-  )
+  );
 };
 
 export default ShoppingCart;

@@ -9,7 +9,7 @@ const shoppingCart = () => {
    * Creates an extended version of product
    * @param {Product} product - The product to be extended
    * @param {number} q - The quantity of the product in cart
-   * @returns 
+   * @returns
    */
   const extendedProduct = (product, q) => {
     let quantity = q;
@@ -55,10 +55,10 @@ const shoppingCart = () => {
   };
 
   const getProducts = () => [...cart];
-    
+
   const getTotalItems = () => {
     return cart.reduce((prev, item) => {
-      return prev + item.getQuantity()
+      return prev + item.getQuantity();
     }, 0);
   };
 

@@ -6,14 +6,25 @@ const Product = ({ product }) => {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.product} onClick={() => navigate(`/product/${product.getId()}`)}>
+    <div
+      className={styles.product}
+      onClick={() => navigate(`/product/${product.getId()}`)}
+    >
       <div className={styles.imgWrapper}>
-        <img className={styles.img} src={product.getImg()} alt={product.getName()} />
+        <img
+          className={styles.img}
+          src={product.getImg()}
+          alt={product.getName()}
+        />
       </div>
 
       <div>
-        <p aria-label='product name' className={styles.productName}>{product.getName()}</p>
-        <p aria-label='product price' className={styles.productPrice}>R{product.getPrice().toFixed(2)}</p>
+        <p aria-label="product name" className={styles.productName}>
+          {product.getName()}
+        </p>
+        <p aria-label="product price" className={styles.productPrice}>
+          R{product.getPrice().toFixed(2)}
+        </p>
       </div>
     </div>
   );

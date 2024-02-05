@@ -11,18 +11,22 @@ const Product = ({ id, img, name, price }) => {
         <img className={styles.img} src={img} alt={name} />
       </div>
       <div>
-        <p aria-label='product name' className={styles.productName}>{name}</p>
-        <p aria-label='product price' className={styles.productPrice}>R{price.toFixed(2)}</p>
+        <p aria-label="product name" className={styles.productName}>
+          {name}
+        </p>
+        <p aria-label="product price" className={styles.productPrice}>
+          R{price.toFixed(2)}
+        </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
 Product.propTypes = {
   id: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-}
+};
 
 export default Product;

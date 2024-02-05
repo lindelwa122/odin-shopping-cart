@@ -1,5 +1,5 @@
 /**
- * 
+ *
  * @param {string} id - The unique id of the product
  * @param {string} name - The name of the product
  * @param {number} price - The price of the product
@@ -20,7 +20,7 @@ const product = (id, name, price, descr, img) => {
     getPrice,
     getDescr,
     getImg,
-  }
+  };
 };
 
 export default product;

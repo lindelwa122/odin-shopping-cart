@@ -9,13 +9,14 @@ const ErrorPage = ({ error }) => {
     <>
       <Navbar />
       <div className={styles.page}>
-        <h1>{
-          error ?? 'There was an error. Check your internet connection and try going to the home page.'
-        }</h1>
+        <h1>
+          {error ??
+            'There was an error. Check your internet connection and try going to the home page.'}
+        </h1>
       </div>
     </>
-  )
-}
+  );
+};
 
 ErrorPage.propTypes = {
   error: PropTypes.string,
