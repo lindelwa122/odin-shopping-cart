@@ -33,7 +33,8 @@ const useProductsData = () => {
           }
 
           const data = await response.json();
-          addProductsToShop(data);
+          const newData = data.map((product) => ({ ...product, price: product.price * 18 }));
+          addProductsToShop(newData);
         } catch (err) {
           setError(err);
         }
